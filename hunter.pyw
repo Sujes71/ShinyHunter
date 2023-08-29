@@ -1,7 +1,7 @@
 import pyautogui as pg
 import time
 import threading
-import os
+import os, sys
 
 def within_threshold(color1, color2, threshold):
     return all(abs(color1[i] - color2[i]) <= threshold for i in range(3))
@@ -23,7 +23,7 @@ def asign_shiny_to_find(name):
 def checkNettle():
     global end
     end = False
-    target_colors = asign_shiny_to_find("bouffalant")
+    target_colors = asign_shiny_to_find(sys.argv[1])
     threshold = 2
     color_found = False
     
